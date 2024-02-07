@@ -104,12 +104,18 @@
             </div>
         </div>
     </div>
-    <audio autoplay loop>
-        <source src="https://toluu.site/audio/audio.mp3" type="audio/mpeg">
+    <!-- <audio autoplay loop="loop" src="https://toluu.site/audio/audio.mp3">
         Your browser does not support the audio element.
-    </audio>
-
+    </audio> -->
+    <audio autoplay src="https://toluu.site/audio/audio.mp3" id="my_audio" loop="loop"></audio>
     <script>
+        const audio = document.getElementById('my_audio');
+
+        // Play audio when the page is clicked
+        document.addEventListener('load', function () {
+            audio.play();
+        });
+
         const memeImg = document.getElementById('memeImg');
         const noBtn = document.getElementById('noBtn');
         const okBtn = document.getElementById('okBtn');
