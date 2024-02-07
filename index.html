@@ -136,6 +136,8 @@
             }
             // scale okBtn
             okBtn.style.transform = `scale(${count * 1.5})`;
+            okBtn.style.transition = "transform 0.5s";
+            okBtn.style.transformOrigin = "top"
         });
 
         okBtn.addEventListener("mouseover", () => {
