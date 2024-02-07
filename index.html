@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Lunar New Year</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: red;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: red;
+            position: relative;
+            top: auto;
+            bottom: auto;
+            width: 100%;
+            height: 100%;
+        }
+
+        .title {
+            font-size: 2rem;
+            color: white;
+            text-align: center;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .meme-container {
+            height: 250px;
+        }
+
+        #memeImg {
+            width: 100%;
+            height: 100%;
+        }
+
+        button#noBtn {
+            color: red;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            padding: 10px 20px;
+        }
+
+        button#okBtn {
+            padding: 10px 20px;
+            background-color: blue;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="title">Tết này lì xì tao nhé</h1>
+        <div class="meme-container">
+            <img id="memeImg" src="https://toluu.site/image/default.jpg" alt="">
+        </div>
+
+        <div class="button-container">
+            <button id="noBtn" class="btn btn-light">Không</button>
+            <button id="okBtn" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Nhất
+                trí</button>
+        </div>
+    </div>
+    <!-- Button trigger modal -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ahihi</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <p>
+                        Đúng là bạn iu của tui
+                    </p>
+                    <img src="https://toluu.site/image/qrcode.gif" style="width: 200px;" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const memeImg = document.getElementById('memeImg');
+        const noBtn = document.getElementById('noBtn');
+        const okBtn = document.getElementById('okBtn');
+
+        let count = 0;
+
+        noBtn.addEventListener('mouseover', () => {
+            memeImg.src = "https://toluu.site/image/meme1.jpg";
+        });
+
+        noBtn.addEventListener("mouseleave", () => {
+            memeImg.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkp47bCEc_2ro06-lCSb-X6etaDh2BDj9ftX8ZWVRNlwBODN3YnaTx7C_6UOBzTGCulxw&usqp=CAU"
+        });
+
+        noBtn.addEventListener("click", () => {
+            count++;
+            if (count === 0) {
+                // swap position of buttons
+                noBtn.style.order = 1;
+                okBtn.style.order = 0;
+            } else if (count === 3) {
+                noBtn.style.display = "none";
+            } else {
+                // random noBtn position around screen
+                noBtn.style.position = "absolute";
+                noBtn.style.left = Math.random() * window.innerWidth + "px";
+                noBtn.style.top = Math.random() * window.innerHeight + "px";
+                noBtn.style.transform = `scale(${1 / count})`
+            }
+            // scale okBtn
+            okBtn.style.transform = `scale(${count * 1.5})`;
+        });
+
+        okBtn.addEventListener("mouseover", () => {
+            memeImg.src = "https://i.pinimg.com/736x/f4/f6/a7/f4f6a7b381c2b0b753c867f26cd4f0de.jpg"
+        })
+
+        okBtn.addEventListener("mouseleave", () => {
+            memeImg.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkp47bCEc_2ro06-lCSb-X6etaDh2BDj9ftX8ZWVRNlwBODN3YnaTx7C_6UOBzTGCulxw&usqp=CAU"
+        })
+
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
